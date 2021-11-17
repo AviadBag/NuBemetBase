@@ -1,6 +1,6 @@
 /*
  Created by Elchairoy Meir on 17/11/2021.
- Definition of table, column a cell structs
+ Definition of table, column a cell structs.
 */
 
 #define MAX_COLUMN_NAME_LEN 30
