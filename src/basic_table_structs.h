@@ -29,6 +29,10 @@ typedef struct
     char name[MAX_COLUMN_NAME_LEN]; /* The name of the column. */
     unsigned long number_of_cells; /* The number of cells in the column. */
     void *cells_list; /* The linked list contains the cells in the column. */
+    unsigned NOT_NULL :1; /* NEED AN EXPLANATION */
+    unsigned UNIQUE :1; /* NEED AN EXPLANATION */
+    unsigned PRIMARY_KEY :1; /* NEED AN EXPLANATION */
+    unsigned FOREIGN_KEY :1; /* NEED AN EXPLANATION */
 }column;
 
 /* The struct of tables: */
