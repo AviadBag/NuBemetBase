@@ -6,43 +6,35 @@
 #define MAX_COLUMN_NAME_LEN 30
 #define MAX_TABLE_NAME_LEN 30
 
-enum types {character = 0,integer,string};
+enum types {Character = 0,Integer,Double,String}; /* All the possible types of data in each column/cell. */
 
-typedef union
-{
-    struct
-    {
-        enum types type;
-        unsigned index;
-        char value;
-    } char_cell;
-
-    struct
-    {
-        enum types type;
-        unsigned index;
-        int value;
-    } int_cell;
-
-    struct
-    {
-        enum types type;
-        unsigned index;
-        char *value;
-    } string_cell;
-}cell;
-
+/* The struct of cells: */
 typedef struct
 {
     enum types type;
-    char name[MAX_COLUMN_NAME_LEN];
-    unsigned number_of_cells;
-    void *cells_list;
-}column;
+    unsigned index; /* The index of the cell in the initial column (after the column goes through changes that
+                        might not be the number of the cell in the column). */
+    union {
+        char char_value;
+        int int_value;
+        double double_value;
+        char *string_value;
+    }value /* The value of the cell (can be several types). */;
+}cell;
 
+/* The struct of columns: */
 typedef struct
 {
-    char name[MAX_TABLE_NAME_LEN];
-    unsigned number_of_columns;
-    void *columns_list;
+    enum types type;
+    char name[MAX_COLUMN_NAME_LEN]; /* The name of the column. */
+    unsigned number_of_cells; /* The number of cells in the column. */
+    void *cells_list; /* The linked list contains the cells in the column. */
+}column;
+
+/* The struct of tables: */
+typedef struct
+{
+    char name[MAX_TABLE_NAME_LEN]; /* The name of the table. */
+    unsigned number_of_columns; /* The number of columns in the column. */
+    void *columns_list; /* The linked list contains the columns in the column. */
 }table;
