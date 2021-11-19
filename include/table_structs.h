@@ -17,6 +17,7 @@ typedef struct
     union {
         char char_value;
         int int_value;
+		float float_value;
         double double_value;
         char *string_value;
     }value /* The value of the cell (can be several types). */;
