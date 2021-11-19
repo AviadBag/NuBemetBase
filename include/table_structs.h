@@ -6,7 +6,7 @@
 #define MAX_COLUMN_NAME_LEN 100
 #define MAX_TABLE_NAME_LEN 100
 
-typedef enum {Character,Integer,Flout,Double,String}Type; /* All the possible types of data in each column/cell. */
+typedef enum {Character,Integer,Float,Double,String}Type; /* All the possible types of data in each column/cell. */
 
 /* The struct of cells: */
 typedef struct
