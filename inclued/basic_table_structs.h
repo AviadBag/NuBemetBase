@@ -7,7 +7,6 @@
 #define MAX_TABLE_NAME_LEN 100
 
 typedef enum {Character,Integer,Flout,Double,String}Type; /* All the possible types of data in each column/cell. */
-typedef unsigned int bool; /* Type of boolean variable. */
 
 /* The struct of cells: */
 typedef struct
@@ -30,10 +29,10 @@ typedef struct
     char name[MAX_COLUMN_NAME_LEN]; /* The name of the column. */
     unsigned long number_of_cells; /* The number of cells in the column. */
     void *cells_list; /* The linked list contains the cells in the column. */
-    bool NOT_NULL :1; /* NEED AN EXPLANATION */
-    bool UNIQUE :1; /* NEED AN EXPLANATION */
-    bool PRIMARY_KEY :1; /* NEED AN EXPLANATION */
-    bool FOREIGN_KEY :1; /* NEED AN EXPLANATION */
+    unsigned NOT_NULL :1; /* NEED AN EXPLANATION */
+    unsigned UNIQUE :1; /* NEED AN EXPLANATION */
+    unsigned PRIMARY_KEY :1; /* NEED AN EXPLANATION */
+    unsigned FOREIGN_KEY :1; /* NEED AN EXPLANATION */
 }column;
 
 /* The struct of tables: */
