@@ -2,6 +2,6 @@
 
 int main()
 {
-    printf("BOOOOOOO!\n");
+    printf("BOOOOOOO4!\n");
     return 0;
 }
