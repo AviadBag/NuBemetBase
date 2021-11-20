@@ -30,10 +30,10 @@ typedef struct
     char name[MAX_COLUMN_NAME_LEN]; /* The name of the column. */
     unsigned long number_of_cells; /* The number of cells in the column. */
     void *cells_list; /* The linked list contains the cells in the column. */
-    unsigned NOT_NULL :1; /* NEED AN EXPLANATION */
-    unsigned UNIQUE :1; /* NEED AN EXPLANATION */
-    unsigned PRIMARY_KEY :1; /* NEED AN EXPLANATION */
-    unsigned FOREIGN_KEY :1; /* NEED AN EXPLANATION */
+    unsigned NOT_NULL :1; /* Cells data in this column can't be null. */
+    unsigned UNIQUE :1; /* Cells data in this column can't already be in this column. */
+    unsigned PRIMARY_KEY :1; /* This column is the main column in the table. */
+    unsigned FOREIGN_KEY :1; /* This column is a main column but not the main one. */
 }column;
 
 /* The struct of tables: */
