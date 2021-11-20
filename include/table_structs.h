@@ -31,7 +31,7 @@ typedef struct
     unsigned long number_of_cells; /* The number of cells in the column. */
     void *cells_list; /* The linked list contains the cells in the column. */
     unsigned NOT_NULL :1; /* Cells data in this column can't be null. */
-    unsigned UNIQUE :1; /* Cells data in this column can't already be in this column. */
+    unsigned UNIQUE :1; /* Cells data in this column can't already be in this column. bla*/
     unsigned PRIMARY_KEY :1; /* This column is the main column in the table. */
     unsigned FOREIGN_KEY :1; /* This column is a main column but not the main one. */
 }column;
