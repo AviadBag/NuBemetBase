@@ -7,7 +7,7 @@
 #ifndef TEST
 int main()
 {
-    printf("BOOOOOOO3!\n");
+    printf("BOOOOOOO4!\n");
     return 0;
 }
 #endif
