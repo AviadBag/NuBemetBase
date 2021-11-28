@@ -8,6 +8,9 @@ CC             := gcc
 CC_FLAGS       := -Wall -ansi -pedantic -ggdb -I${INCLUDE} -I${SRC} -lm
 CC_TESTS_FLAGS := -I${INCLUDE} -lm -I${TESTS}/libtap -DTEST # I am not adding here the c90 standard, because it interferes with libtap.
 
+VALGRIND       := valgrind
+VALGRIND_FLAGS := --leak-check=yes --error-exitcode=2
+
 SOURCES       := $(shell find ${SRC} -type f -name '*.c')
 HEADERS       := $(shell find ${ROOT} -type f -name '*.h')
 TESTS_SOURCES := $(shell find ${TESTS} -type f -name '*.c')
@@ -22,6 +25,9 @@ run: clean all
 
 test: clean ${BIN}/${TEST_EXECUTABLE}
 	@./${BIN}/${TEST_EXECUTABLE}
+
+valgrind: ${BIN}/${EXECUTABLE}
+	${VALGRIND} ${VALGRIND_FLAGS} $<
 
 # We are compiling here the sources as well, because the tester code uses the c code.
 ${BIN}/${TEST_EXECUTABLE}: ${TESTS_SOURCES}
